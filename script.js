@@ -1,5 +1,6 @@
 let myLibrary = [];     // contains books array
 
+
 // constructor for book object
 function Book(title, author, noOfPages, isRead) {
     this.title = title;
@@ -27,6 +28,9 @@ function removeBook(i) {
 }
 
 
+Book.prototype.changeReadStatus = function (status) {
+    this.isRead = status; 
+};
 
 // main
 
@@ -35,4 +39,4 @@ addBookToLibrary('The Great Gatsby', 'F. Scott Fitzgerald', 180, true);
 addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', 281, false);
 addBookToLibrary('1984', 'George Orwell', 328, true);
 addBookToLibrary('Moby Dick', 'Herman Melville', 585, false);
-addBookToLibrary('Pride and Prejudice', 'Jane Austen', 279, true);
+addBookToLibrary('Pride and Prejudice', 'Jane Austen', 283, true);

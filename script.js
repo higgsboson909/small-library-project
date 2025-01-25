@@ -1,3 +1,4 @@
+
 let myLibrary = [];     // contains books array
 
 
@@ -7,7 +8,6 @@ function Book(title, author, noOfPages, isRead) {
     this.author = author;
     this.noOfPages = noOfPages;
     this.isRead = isRead;
-
 }
 
 

@@ -11,7 +11,36 @@
         <a href="./index.html">Library</a>
     </div>  
     <div class="main-content"> 
+    
+       <dialog id="book-info">
+            <form id="book-form" action="/index.html" method="get">
+
+                <div class="heading">
+                    <h2>Add a Book</h2>
+                    <span><button class="modal-close">x</button></span>
+                </div>
                 
+            <div>
+                <label for="title">Title: </label>
+                <input type="text" id="title" name="book-title" placeholder="Enter book title">
+            </div>
+            <div>
+                <label for="author">Author: </label>
+                <input type="text" id="author" name="book-author" placeholder="Enter author name">
+            </div>
+            <div>
+                <label for="pages">Pages: </label>
+                <input type="number" id="pages" name="no-of-pages" placeholder="Enter no. of pages">
+            </div>
+            <div class="checkbox">
+                <label for="read">Read: </label>
+                <input type="checkbox" name="read" id="read">
+            </div>
+            <button class="form-submit" type="submit">Submit</button>
+
+
+        </form>
+       </dialog> 
     </div>
 
     <div class="footer">

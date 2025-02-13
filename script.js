@@ -1,3 +1,5 @@
+const addBookEl = document.querySelector(".add-book");
+const mainContentEl = document.querySelector(".main-content");
 
 let myLibrary = [];     // contains books array
 
@@ -10,7 +12,7 @@ function Book(title, author, noOfPages, isRead) {
     this.isRead = isRead;
 }
 
-
+// add books to the library
 function addBookToLibrary(title, author, noOfPages, isRead) {
     const book = new Book(title, author, noOfPages, isRead);
     myLibrary.push(book);
@@ -40,3 +42,4 @@ addBookToLibrary('To Kill a Mockingbird', 'Harper Lee', 281, false);
 addBookToLibrary('1984', 'George Orwell', 328, true);
 addBookToLibrary('Moby Dick', 'Herman Melville', 585, false);
 addBookToLibrary('Pride and Prejudice', 'Jane Austen', 283, true);
+

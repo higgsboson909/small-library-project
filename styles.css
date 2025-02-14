@@ -78,6 +78,7 @@ body {
     font-size: 1.05rem;
     width: 80px;
     border-radius: 30px;
+    background-color: white;
 
 }
 
@@ -92,7 +93,27 @@ body {
     height: 340px;
 }
 
+.read {
+    margin: 10px;
+    font-size: 1.05rem;
+    width: 80px;
+    border-radius: 30px;
+    color: green;
+    background-color: white;
+    border: 1px solid green;
 
+}
+.to-read {
+    margin: 10px;
+    background-color: white;
+    font-size: 1.05rem;
+    width: 80px;
+    border-radius: 30px;
+
+
+    color: red;
+    border: 1px solid red;
+}
 
 /* form */
 form {

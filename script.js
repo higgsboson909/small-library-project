@@ -17,8 +17,12 @@ function Book(title, author, noOfPages, isRead) {
     this.isRead = isRead;
 }
 
-Book.prototype.changeReadStatus = function (status) {
-    this.isRead = status; 
+Book.prototype.changeReadStatus = function () {
+    if(this.isRead == true) {
+        this.isRead = false;
+    }
+    else 
+        this.isRead = true;
 };
 
 // main
@@ -72,8 +76,6 @@ function insertBooks(bookArr) {
         rmvBtn.classList.add('remove-btn');
         rmvBtn.innerHTML = "Remove";
         const readBtn = document.createElement("button");
-        readBtn.classList.add('read-btn');
-        readBtn.innerHTML = "To read";
         btnsEl.append(readBtn);
         btnsEl.append(rmvBtn);
         bookDiv.append(titleEl);
@@ -87,6 +89,14 @@ function insertBooks(bookArr) {
         titleEl.innerHTML = book.title;
         authorEl.innerHTML =  book.author;
         noOfPagesEl.innerHTML = "p. - " + book.noOfPages;
+        if(book.isRead === true) {
+            readBtn.innerHTML = "Read";
+            readBtn.classList.add("read");
+        }
+        else {
+            readBtn.innerHTML = "To read";
+            readBtn.classList.add("to-read");
+        }
         bookEl.push(bookDiv);
 
         // delete the book card
@@ -96,11 +106,15 @@ function insertBooks(bookArr) {
             bookIndex = 0;
             bookEl.forEach((book) => book.remove());        // remove the preious books
             
-    insertBooks(myLibrary);         //insert newly added book
+            insertBooks(myLibrary);         //insert newly added book
+
         });
 
         mainContentEl.append(bookDiv);
+
     });
+
+        updateReadStatus();
 }
 
 addBookEl.addEventListener('click', () => {
@@ -117,8 +131,43 @@ submitBtnEl.addEventListener('click', () => {
     const title = document.getElementById('title').value;
     const author = document.getElementById('author').value;
     const pages = document.getElementById('pages').value;
-    addBookToLibrary(title, author, pages, false);
+    let bookStatus;
+    if(document.getElementById("read").value == 'on') {
+        bookStatus = true;
+    }
+    else 
+        bookStatus = false;
+        
+    console.log(bookStatus);
+    addBookToLibrary(title, author, pages, bookStatus);
     bookEl.forEach((book) => book.remove());        // remove the preious books
     bookIndex = 0;
+
     insertBooks(myLibrary);         //insert newly added book
-})
+});
+
+updateReadStatus();
+
+function updateReadStatus() {
+    let allBookEls = document.querySelectorAll(".book");
+    allBookEls.forEach((book) => {
+            book.addEventListener('click', (event) => {
+            const target = event.target;
+
+            if(target.classList.contains("read")) {
+                let index = book.getAttribute("data-id");
+                myLibrary[index].changeReadStatus();
+                target.innerHTML = "To read";
+                target.classList.remove("read");
+                target.classList.add("to-read");
+            }
+            else if(target.classList.contains("to-read")) {
+                let index = book.getAttribute("data-id");
+                target.innerHTML = "Read";
+                myLibrary[index].changeReadStatus();
+                target.classList.remove("to-read");
+                target.classList.add("read");
+            }
+        });
+    });
+}

@@ -117,6 +117,7 @@ function insertBooks(bookArr) {
         updateReadStatus();
 }
 
+    updateReadStatus();
 addBookEl.addEventListener('click', () => {
     dialog.showModal();
 });
@@ -144,6 +145,7 @@ submitBtnEl.addEventListener('click', () => {
     bookIndex = 0;
 
     insertBooks(myLibrary);         //insert newly added book
+
 });
 
 updateReadStatus();

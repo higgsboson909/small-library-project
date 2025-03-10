@@ -9,13 +9,25 @@ const bookEl = [];
 let myLibrary = [];     // contains books array
 let bookIndex = 0;
 
+
+
+// Book class
+class Book {
+    constructor(title, author, noOfPages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.noOfPages = noOfPages;
+        this.isRead = isRead;
+    }
+};
+
 // constructor for book object
-function Book(title, author, noOfPages, isRead) {
-    this.title = title;
-    this.author = author;
-    this.noOfPages = noOfPages;
-    this.isRead = isRead;
-}
+// function Book(title, author, noOfPages, isRead) {
+//     this.title = title;
+//     this.author = author;
+//     this.noOfPages = noOfPages;
+//     this.isRead = isRead;
+// }
 
 Book.prototype.changeReadStatus = function () {
     if(this.isRead == true) {
